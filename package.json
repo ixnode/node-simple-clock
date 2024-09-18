@@ -1,0 +1,48 @@
+{
+  "name": "@ixnode/simple-clock",
+  "version": "0.1.0",
+  "description": "A simple, updating clock component for React.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<USERNAME>/simple-clock.git"
+  },
+  "keywords": [
+    "react",
+    "clock",
+    "typescript",
+    "component"
+  ],
+  "author": "Björn Hempel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ixnode/node-simple-clock/issues"
+  },
+  "homepage": "https://github.com/ixnode/node-simple-clock#readme",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.0.0",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^27.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/testing-library__react": "^10.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.0",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.0.0"
+  }
+}
