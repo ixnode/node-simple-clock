@@ -1,1 +1,1 @@
-export { default as Clock } from './Clock';
+export { Clock } from './components/Clock/Clock';

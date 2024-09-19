@@ -1,0 +1,53 @@
+@use "sass:color";
+
+$clock-color-default: #333;
+$clock-color-red: #ff0000;
+$clock-color-green: #00ff00;
+$clock-color-blue: #0000ff;
+$clock-font-size-small: 1rem;
+$clock-font-size-medium: 2rem;
+$clock-font-size-large: 3rem;
+$clock-font-family: 'Arial, sans-serif';
+
+.clock {
+    font-family: $clock-font-family;
+    font-size: $clock-font-size-medium;
+    text-align: center;
+    color: $clock-color-default;
+
+    &:hover {
+        color: color.adjust($clock-color-default, $lightness: 15%)
+    }
+
+    &.small {
+        font-size: $clock-font-size-small;
+    }
+
+    &.large {
+        font-size: $clock-font-size-large;
+    }
+
+    &.red {
+        color: $clock-color-red;
+
+        &:hover {
+            color: color.adjust($clock-color-red, $lightness: 15%)
+        }
+    }
+
+    &.green {
+        color: $clock-color-green;
+
+        &:hover {
+            color: color.adjust($clock-color-green, $lightness: 15%)
+        }
+    }
+
+    &.blue {
+        color: $clock-color-blue;
+
+        &:hover {
+            color: color.adjust($clock-color-blue, $lightness: 15%)
+        }
+    }
+}
