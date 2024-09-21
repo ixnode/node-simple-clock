@@ -17,8 +17,7 @@ $clock-font-family: 'Arial, sans-serif';
     font-size: $clock-font-size-medium;
     text-align: center;
     color: $clock-color-default;
-    border: 1px solid $clock-color-default;
-    padding: $clock-padding-medium;
+    border-color: $clock-color-default;
 
     .tents {
         font-size: 0.8em;
@@ -65,15 +64,34 @@ $clock-font-family: 'Arial, sans-serif';
         }
     }
 
+    &.with-border {
+        border-width: 1px;
+        border-style: solid;
+        padding: $clock-padding-medium;
+    }
+
     .analog-clock {
         font-size: 1px;
         position: relative;
         width: 200em;
         height: 200em;
-        border: 3em solid $clock-color-default;
+        border: 0;
         border-radius: 50%;
-        background: white;
-        margin: 20em auto;
+        background: #f0f0f0;
+        margin: 5em;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: -5em;
+            left: -5em;
+            right: -5em;
+            bottom: -5em;
+            border: 5em solid $clock-color-default;
+            border-radius: 50%;
+            box-shadow: inset 1em 1em 1.5em rgba(0, 0, 0, 0.5), 1em 1em 1.5em rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
 
         .clock-face {
             position: relative;
@@ -86,6 +104,7 @@ $clock-font-family: 'Arial, sans-serif';
                 left: 50%;
                 width: 10em;
                 height: 10em;
+                z-index: 4;
 
                 .point-marker {
                     height: 100%;
@@ -94,35 +113,45 @@ $clock-font-family: 'Arial, sans-serif';
                     margin-top: -50%;
                     border-radius: 50%;
                     background-color: $clock-color-default;
+                    box-shadow: 1em 1em 1.5em rgba(0, 0, 0, 0.5);
                 }
             }
 
             .hand {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform-origin: 0 50%; /* Rotate from the left end of the hand */
-                transform: rotate(0deg);
+                left: 100em;
+                transform-origin: bottom;
+                transition: transform 0.7s cubic-bezier(.1,.68,.33,.85);
 
                 &.hour-hand {
-                    width: 60em;
-                    height: 6em;
-                    margin-top: -3em;
+                    top: 40em;
+                    width: 10em;
+                    height: 60em;
+                    margin-left: -5em;
                     background: #333;
+                    border-top-right-radius: 5em;
+                    border-top-left-radius: 5em;
                 }
 
                 &.minute-hand {
-                    width: 90em;
-                    height: 4em;
-                    margin-top: -2em;
+                    top: 15em;
+                    width: 6em;
+                    height: 85em;
+                    margin-left: -3em;
                     background: #666;
+                    border-top-right-radius: 3em;
+                    border-top-left-radius: 3em;
                 }
 
                 &.second-hand {
-                    width: 95em;
-                    height: 2em;
-                    margin-top: -1em;
+                    top: 10em;
+                    width: 4em;
+                    height: 90em;
+                    margin-left: -2em;
                     background: $clock-color-default;
+                    border-top-right-radius: 2em;
+                    border-top-left-radius: 2em;
+                    z-index: 3;
                 }
             }
 
@@ -136,11 +165,21 @@ $clock-font-family: 'Arial, sans-serif';
                 margin-left: -1em;
                 transform-origin: bottom;
 
+                .mark-line {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $clock-color-default;
+                    width: 2em;
+                    border-bottom-left-radius: 1em;
+                    border-bottom-right-radius: 1em;
+                    z-index: -1;
+                    box-shadow: 5px 5px 5px 0 color.adjust($clock-color-default, $lightness: 30%);
+                }
+
                 /* Long hour marks (12, 3, 6, 9) */
                 &.mark-long {
                     .mark-line {
-                        background: black;
-                        width: 2em;
                         height: 20em;
                     }
                 }
@@ -148,10 +187,40 @@ $clock-font-family: 'Arial, sans-serif';
                 /* Short hour marks (1, 2, 4, 5, 7, 8, 10, 11) */
                 &.mark-short {
                     .mark-line {
-                        background: black;
-                        width: 2em;
                         height: 5em;
                     }
+                }
+
+                &.mark-0 {
+                    z-index: 2;
+                }
+
+                &.mark-1 {
+                    z-index: 2;
+                }
+
+                &.mark-2 {
+                    z-index: 2;
+                }
+
+                &.mark-7 {
+                    z-index: 2;
+                }
+
+                &.mark-8 {
+                    z-index: 2;
+                }
+
+                &.mark-9 {
+                    z-index: 2;
+                }
+
+                &.mark-10 {
+                    z-index: 2;
+                }
+
+                &.mark-11 {
+                    z-index: 2;
                 }
             }
         }
@@ -159,8 +228,16 @@ $clock-font-family: 'Arial, sans-serif';
 
     &.red {
         .analog-clock {
-            border-color: $clock-color-red;
+            &::before {
+                border-color: $clock-color-red;
+            }
             .clock-face {
+                .mark {
+                    .mark-line {
+                        background-color: $clock-color-red;
+                    }
+                }
+
                 .hand {
                     &.second-hand {
                         background: $clock-color-red;
@@ -178,11 +255,25 @@ $clock-font-family: 'Arial, sans-serif';
 
     &.green {
         .analog-clock {
-            border-color: $clock-color-green;
+            &::before {
+                border-color: $clock-color-green;
+            }
             .clock-face {
+                .mark {
+                    .mark-line {
+                        background-color: $clock-color-green;
+                    }
+                }
+
                 .hand {
                     &.second-hand {
                         background: $clock-color-green;
+                    }
+                }
+
+                .point {
+                    .point-marker {
+                        background-color: $clock-color-green;
                     }
                 }
             }
@@ -191,11 +282,19 @@ $clock-font-family: 'Arial, sans-serif';
 
     &.blue {
         .analog-clock {
-            border-color: $clock-color-blue;
+            &::before {
+                border-color: $clock-color-blue;
+            }
             .clock-face {
                 .hand {
                     &.second-hand {
                         background: $clock-color-blue;
+                    }
+                }
+
+                .point {
+                    .point-marker {
+                        background-color: $clock-color-blue;
                     }
                 }
             }
