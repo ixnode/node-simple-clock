@@ -187,13 +187,17 @@ export const Clock: React.FC<ClockProps> = ({
                             <div className="point-marker" />
                         </div>
                     </div>
+
+                    {showDate && <div className="display">
+                        <div className="date-text">{formattedDate}{showTimeZone && <><br/>{formattedTimeZone}</>}</div>
+                    </div>}
                 </div>
             ) : (
                 <>
-                    {showDate && <>{formattedDate} - </>}
+                    {showDate && <>{formattedDate}, </>}
                     {formattedTime}
                     {showTenths && <span className={'tents'}>.{formattedTenths}</span>}
-                    {showTimeZone && <>, {formattedTimeZone}</>}
+                    {showTimeZone && <> {formattedTimeZone}</>}
                 </>
             )}
         </div>
