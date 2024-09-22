@@ -136,7 +136,7 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                 position: absolute;
                 left: 100em;
                 transform-origin: bottom;
-                transition: transform 0.7s cubic-bezier(.1,.68,.33,.85);
+                transition: transform 0.25s cubic-bezier(.1,.68,.33,.85);
 
                 &.hour-hand {
                     top: 40em;

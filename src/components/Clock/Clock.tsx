@@ -95,22 +95,21 @@ export const Clock: React.FC<ClockProps> = ({
             const newTime = new Date();
             const seconds = newTime.getSeconds();
 
-            if (seconds === 1 && secondHandRef.current) {
+            if (isAnalog && seconds === 1 && secondHandRef.current) {
                 secondHandRef.current.style.transition = 'none';
                 secondHandRef.current.style.transform = `rotate(0deg)`;
-
             }
 
             setTimeout(() => {
-                if (seconds === 1 && secondHandRef.current) {
+                if (isAnalog && seconds === 1 && secondHandRef.current) {
                     secondHandRef.current.style.transition = '';
                 }
                 setTime(newTime);
             }, 100);
-        }, showTenths ? 100 : 1000);
+        }, showTenths && !isAnalog ? 100 : 1000);
 
         return () => clearInterval(timer);
-    }, [showTenths]);
+    }, [showTenths, isAnalog]);
 
     /* Date formatting */
     const formattedDate = showDate
