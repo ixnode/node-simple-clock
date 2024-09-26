@@ -1,9 +1,9 @@
 @use "sass:color";
 
 $clock-color-default: #333;
-$clock-color-red: #b00;
-$clock-color-green: #0b0;
-$clock-color-blue: #00b;
+$clock-color-red: #900;
+$clock-color-green: #090;
+$clock-color-blue: #009;
 $clock-font-size-small: 1rem;
 $clock-font-size-medium: 2rem;
 $clock-font-size-large: 3rem;
@@ -14,15 +14,18 @@ $clock-font-family: 'Arial, sans-serif';
 
 $clock-background-color-second: #fff;
 
-$clock-background-color-default: color.adjust($clock-color-default, $lightness: 75%);
-$clock-background-color-red: color.adjust($clock-color-red, $lightness: 58%);
-$clock-background-color-green: color.adjust($clock-color-green, $lightness: 58%);
-$clock-background-color-blue: color.adjust($clock-color-blue, $lightness: 58%);
+$size-1: 25%;
+$size-2: 75%;
 
-$clock-background-image-default: repeating-linear-gradient(45deg, $clock-background-color-default 25%, transparent 25%, transparent 75%, $clock-background-color-default 75%, $clock-background-color-default), repeating-linear-gradient(45deg, $clock-background-color-default 25%, $clock-background-color-second 25%, $clock-background-color-second 75%, $clock-background-color-default 75%, $clock-background-color-default);
-$clock-background-image-red: repeating-linear-gradient(45deg, $clock-background-color-red 25%, transparent 25%, transparent 75%, $clock-background-color-red 75%, $clock-background-color-red), repeating-linear-gradient(45deg, $clock-background-color-red 25%, $clock-background-color-second 25%, $clock-background-color-second 75%, $clock-background-color-red 75%, $clock-background-color-red);
-$clock-background-image-green: repeating-linear-gradient(45deg, $clock-background-color-green 25%, transparent 25%, transparent 75%, $clock-background-color-green 75%, $clock-background-color-green), repeating-linear-gradient(45deg, $clock-background-color-green 25%, $clock-background-color-second 25%, $clock-background-color-second 75%, $clock-background-color-green 75%, $clock-background-color-green);
-$clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background-color-blue 25%, transparent 25%, transparent 75%, $clock-background-color-blue 75%, $clock-background-color-blue), repeating-linear-gradient(45deg, $clock-background-color-blue 25%, $clock-background-color-second 25%, $clock-background-color-second 75%, $clock-background-color-blue 75%, $clock-background-color-blue);
+$clock-background-color-default: color.adjust($clock-color-default, $lightness: 75%);
+$clock-background-color-red: color.adjust($clock-color-red, $lightness: 65%);
+$clock-background-color-green: color.adjust($clock-color-green, $lightness: 64%);
+$clock-background-color-blue: color.adjust($clock-color-blue, $lightness: 65%);
+
+$clock-background-image-default: repeating-linear-gradient(45deg, $clock-background-color-default $size-1, transparent $size-1, transparent $size-2, $clock-background-color-default $size-2, $clock-background-color-default), repeating-linear-gradient(45deg, $clock-background-color-default $size-1, $clock-background-color-second $size-1, $clock-background-color-second $size-2, $clock-background-color-default $size-2, $clock-background-color-default);
+$clock-background-image-red: repeating-linear-gradient(45deg, $clock-background-color-red $size-1, transparent $size-1, transparent $size-2, $clock-background-color-red $size-2, $clock-background-color-red), repeating-linear-gradient(45deg, $clock-background-color-red $size-1, $clock-background-color-second $size-1, $clock-background-color-second $size-2, $clock-background-color-red $size-2, $clock-background-color-red);
+$clock-background-image-green: repeating-linear-gradient(45deg, $clock-background-color-green $size-1, transparent $size-1, transparent $size-2, $clock-background-color-green $size-2, $clock-background-color-green), repeating-linear-gradient(45deg, $clock-background-color-green $size-1, $clock-background-color-second $size-1, $clock-background-color-second $size-2, $clock-background-color-green $size-2, $clock-background-color-green);
+$clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background-color-blue $size-1, transparent $size-1, transparent $size-2, $clock-background-color-blue $size-2, $clock-background-color-blue), repeating-linear-gradient(45deg, $clock-background-color-blue $size-1, $clock-background-color-second $size-1, $clock-background-color-second $size-2, $clock-background-color-blue $size-2, $clock-background-color-blue);
 
 .clock {
     font-family: $clock-font-family;
@@ -143,7 +146,7 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                     width: 10em;
                     height: 60em;
                     margin-left: -5em;
-                    background: #333;
+                    background: #444;
                     border-top-right-radius: 5em;
                     border-top-left-radius: 5em;
                     z-index: 2;
@@ -194,50 +197,22 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                     box-shadow: 5px 5px 5px 0 color.adjust($clock-color-default, $lightness: 30%);
                 }
 
-                /* Long hour marks (12, 3, 6, 9) */
                 &.mark-long {
                     .mark-line {
                         height: 20em;
                     }
                 }
 
-                /* Short hour marks (1, 2, 4, 5, 7, 8, 10, 11) */
+                &.mark-middle {
+                    .mark-line {
+                        height: 10em;
+                    }
+                }
+
                 &.mark-short {
                     .mark-line {
                         height: 5em;
                     }
-                }
-
-                &.mark-0 {
-                    z-index: 2;
-                }
-
-                &.mark-1 {
-                    z-index: 2;
-                }
-
-                &.mark-2 {
-                    z-index: 2;
-                }
-
-                &.mark-7 {
-                    z-index: 2;
-                }
-
-                &.mark-8 {
-                    z-index: 2;
-                }
-
-                &.mark-9 {
-                    z-index: 2;
-                }
-
-                &.mark-10 {
-                    z-index: 2;
-                }
-
-                &.mark-11 {
-                    z-index: 2;
                 }
             }
         }
@@ -248,11 +223,12 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
             left: 50em;
             right: 50em;
             border: 1em solid $clock-color-default;
-            background-color: #f0f0f0;
+            background-color: $clock-background-color-second;
+            //background-image: $clock-background-image-default;
             border-radius: 5em;
             color: $clock-color-default;
-            padding: 2em;
-            box-shadow: 1em 1em 1.5em rgba(0, 0, 0, 0.5);
+            padding: 3em 2em 2em;
+            box-shadow: inset 1em 1em 1.5em rgba(0, 0, 0, 0.5);
             z-index: 1;
 
             .date-text {
@@ -289,6 +265,11 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                     }
                 }
             }
+
+            .display {
+                border-color: $clock-color-red;
+                background-color: $clock-background-color-second;
+            }
         }
     }
 
@@ -319,6 +300,11 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                     }
                 }
             }
+
+            .display {
+                border-color: $clock-color-green;
+                background-color: $clock-background-color-second;
+            }
         }
     }
 
@@ -342,6 +328,11 @@ $clock-background-image-blue: repeating-linear-gradient(45deg, $clock-background
                         background-color: $clock-color-blue;
                     }
                 }
+            }
+
+            .display {
+                border-color: $clock-color-blue;
+                background-color: $clock-background-color-second;
             }
         }
     }

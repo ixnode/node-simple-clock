@@ -142,10 +142,11 @@ export const Clock: React.FC<ClockProps> = ({
     let secondAngle = (seconds === 0 ? 360 : (seconds / 60) * 360);
 
     /* Create hour marks */
-    const marks = Array.from({ length: 12 }).map((_, index) => {
-        const isLongMark = [0, 3, 6, 9].includes(index); // Long marks for 12, 3, 6, 9
-        const markClass = 'mark' + (isLongMark ? ' mark-long' : ' mark-short') + ' mark-' + index;
-        const angle = index * 30;
+    const marks = Array.from({ length: 60 }).map((_, index) => {
+        const isLongMark = [0, 15, 30, 45].includes(index);
+        const isMiddleMark = [5, 10, 20, 25, 35, 40, 50, 55].includes(index);
+        const markClass = 'mark' + (isLongMark ? ' mark-long' : (isMiddleMark ? ' mark-middle' : ' mark-short')) + ' mark-' + index;
+        const angle = index * 6;
         const transform = `rotate(${angle}deg)`; // 30 degrees per hour mark
         const { offsetX, offsetY } = calculateShadowOffsets(angle);
         const boxShadow = shadowTemplate
