@@ -143,7 +143,7 @@ These formats use the offset from UTC in hours and minutes. Examples:
 To build the project locally:
 
 ```shell
-yarn build
+npm run build
 ```
 
 ### Running Storybook
@@ -151,7 +151,7 @@ yarn build
 View and develop components in isolation:
 
 ```shell
-yarn storybook
+npm run storybook
 ```
 
 Open: http://localhost:6006/
@@ -161,7 +161,7 @@ Open: http://localhost:6006/
 ### Build the project
 
 ```shell
-yarn build
+npm run build
 ```
 
 ### Verify the build
