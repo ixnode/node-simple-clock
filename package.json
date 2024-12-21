@@ -1,6 +1,6 @@
 {
   "name": "@ixnode/simple-clock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, updating clock component for React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
