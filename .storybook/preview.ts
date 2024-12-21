@@ -9,6 +9,8 @@ const preview: Preview = {
       },
     },
   },
+
+  tags: ["autodocs", "autodocs"]
 };
 
 export default preview;
