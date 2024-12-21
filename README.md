@@ -1,6 +1,7 @@
 # @ixnode/simple-clock
 
 [![Release](https://img.shields.io/github/v/release/ixnode/node-simple-clock)](https://github.com/ixnode/node-simple-clock/releases)
+[![](https://img.shields.io/github/release-date/ixnode/node-simple-clock)](https://github.com/twelvepics-com/php-calendar-builder/releases)
 [![npm version](https://badge.fury.io/js/@ixnode%2Fsimple-clock.svg)](https://www.npmjs.com/package/@ixnode/simple-clock)
 [![TypeScript](https://img.shields.io/badge/TypeScript-^4.9-555555.svg?logo=typescript&logoColor=white&labelColor=3178c6&style=flat)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
