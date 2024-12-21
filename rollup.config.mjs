@@ -1,21 +1,22 @@
-const sass = require('rollup-plugin-sass');
-const typescript = require('@rollup/plugin-typescript');
+import sass from 'rollup-plugin-sass';
+import typescript from '@rollup/plugin-typescript';
+import fs from 'fs';
 
-module.exports = {
+export default {
     input: 'src/index.ts',
     output: {
         file: 'dist/index.js',
-        format: 'cjs', // CommonJS
+        format: 'cjs',
     },
+    external: ['react', 'react-dom', 'react/jsx-runtime'],
     plugins: [
         typescript({
-            tsconfig: './tsconfig.json', // Stelle sicher, dass die richtige Datei verwendet wird
+            tsconfig: './tsconfig.json',
         }),
         sass({
             output(styles) {
-                const fs = require('fs');
                 fs.writeFileSync('dist/styles.css', styles); // Schreibe die CSS-Datei
             },
         }),
     ],
-};
+}
