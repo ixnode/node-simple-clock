@@ -1,5 +1,6 @@
 # @ixnode/simple-clock
 
+[![Release](https://img.shields.io/github/v/release/ixnode/node-simple-clock)](https://github.com/ixnode/node-simple-clock/releases)
 [![npm version](https://badge.fury.io/js/@ixnode%2Fsimple-clock.svg)](https://www.npmjs.com/package/@ixnode/simple-clock)
 [![TypeScript](https://img.shields.io/badge/TypeScript-^4.9-555555.svg?logo=typescript&logoColor=white&labelColor=3178c6&style=flat)](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -31,13 +32,31 @@ yarn add @ixnode/simple-clock
 
 ### Basic Usage
 
+![Basic clock.](docs/images/basic.png "Basic clock.")
+
 ```tsx
 import React from 'react';
 import { Clock } from '@ixnode/simple-clock';
 import '@ixnode/simple-clock/dist/styles.css';
 
 const App = () => (
-    <Clock size="large" color="blue" showDate={true} />
+    <Clock size="large" color="blue" showDate={true} showBorder={true} showTimeZone={true} />
+);
+
+export default App;
+```
+
+### More complex usage
+
+![Analog clock.](docs/images/analog.png "Analog clock.")
+
+```tsx
+import React from 'react';
+import { Clock } from '@ixnode/simple-clock';
+import '@ixnode/simple-clock/dist/styles.css';
+
+const App = () => (
+    <Clock color={'default'} size={'small'} isAnalog={true} timeZone={"Europe/Berlin"} locale={"de-DE"} />
 );
 
 export default App;
@@ -133,6 +152,8 @@ View and develop components in isolation:
 ```shell
 yarn storybook
 ```
+
+Open: http://localhost:6006/
 
 ## 📦 Publishing to npm
 
