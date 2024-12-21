@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Changelogs
 
+### [1.0.3] - 2024-12-21
+
+* Fix npm audits
+* Update README.md
+
 ### [1.0.2] - 2024-12-21
 
 * Update README.md
