@@ -156,6 +156,8 @@ npm run storybook
 
 Open: http://localhost:6006/
 
+![Storybook](docs/images/storybook.png "Storybook")
+
 ## 📦 Publishing to npm
 
 ### Build the project
