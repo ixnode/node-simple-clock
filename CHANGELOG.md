@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Changelogs
 
+### [1.0.6] - 2024-12-21
+
+* Add Clock export to npmjs package
+
 ### [1.0.5] - 2024-12-21
 
 * Add storybook example to README.md
