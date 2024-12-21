@@ -8,8 +8,9 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist",
